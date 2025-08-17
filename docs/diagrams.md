@@ -179,14 +179,14 @@ flowchart LR
   Batt[(Batterie 3.7V)] --> SW[Inter général]
   USB[USB-C 5V] --> OR[Diode-OR / Power Path]
   SW --> OR
-  OR --> LDO_A[Reg 3.3V analog LDO low-noise]
+  OR --> LDO_A[Reg 3.3V analog<br/>(LDO low-noise)]
   OR --> LDO_D[Reg 3.3V digital]
   LDO_D --> SoC[ESP32-S3]
   LDO_A --> DAC[ES9020Q] --> AMP[INA1620/Line-Out]
-  SoC -. Wake .- BTN[Bouton]
-  SoC -. Wake .- JACK[Jack Detect]
-  SoC -. Wake .- RTC[Timer/RTC]
-  SoC -. BLE adv .-> Antenna((BLE))
+  BTN[Bouton] -->|Wake| SoC
+  JACK[Jack Detect] -->|Wake| SoC
+  RTC[Timer/RTC] -->|Wake| SoC
+  SoC -. "BLE adv" .-> Antenna((BLE))
 ```
 
 ---
