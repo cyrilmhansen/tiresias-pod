@@ -22,10 +22,10 @@ flowchart LR
   UI[UI locale\nBouton + LED + JackDetect]
   SD[(microSD)]
   IDX[Indexation]
-  DEC[Décodeur/Buffer\n(FLAC/OPUS/PCM)]
+  DEC[Décodeur/Buffer FLAC/OPUS/PCM]
   I2S[I²S]
   DAC[DAC ES9020Q]
-  OUT[Carte casque / Line-Out / (Ampli fixe option)]
+  OUT[Carte casque / Line-Out / Ampli fixe option]
   Batt[(Batterie 18650/14500)]
   USB[USB-C 5V]
 
@@ -45,15 +45,15 @@ flowchart LR
 ```mermaid
 flowchart TB
   subgraph Firmware
-    CTRL[State Machine\n(play/pause/seek)]
+    CTRL[State Machine play/pause/seek]
     BLE[(BLE ACS/BAS/DIS)]
-    FS[FS Abstraction\nFAT32/exFAT]
+    FS[FS Abstraction FAT32/exFAT]
     IDX[Indexation & Cache]
     META[Parse métadonnées]
-    DEC[Pipeline audio\nFLAC/OPUS/WAV]
+    DEC[Pipeline audio FLAC/OPUS/WAV]
     I2S[I²S driver]
     UI[GPIO ISR\nBouton/LED/Jack]
-    PWR[Power Mgmt\nSleep/Wake/Timers]
+    PWR[Power Mgmt Sleep/Wake/Timers]
     ERR[ErrLog/Watchdog]
   end
   BLE <--> CTRL
@@ -139,13 +139,13 @@ flowchart LR
   Batt[(Batterie 3.7V)] --> SW[Inter général]
   USB[USB-C 5V] --> OR[Diode-OR / Power Path]
   SW --> OR
-  OR --> LDO_A[Reg 3.3V analog\n(LDO low-noise)]
+  OR --> LDO_A[Reg 3.3V analog LDO low-noise]
   OR --> LDO_D[Reg 3.3V digital]
   LDO_D --> SoC[ESP32-S3]
   LDO_A --> DAC[ES9020Q] --> AMP[INA1620/Line-Out]
-  SoC <-- Wake -- BTN[Bouton]
-  SoC <-- Wake -- JACK[Jack Detect]
-  SoC <-- Wake -- RTC[Timer/RTC]
+  SoC -. Wake .- BTN[Bouton]
+  SoC -. Wake .- JACK[Jack Detect]
+  SoC -. Wake .- RTC[Timer/RTC]
   SoC -. BLE adv .-> Antenna((BLE))
 ```
 
