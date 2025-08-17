@@ -1,0 +1,10 @@
+# LICENSE — aperçu & pointeurs (multi-licences)
+
+> Ce dépôt contient **trois familles** d’artefacts avec des **régimes de licence distincts**. Ce fichier est un **résumé non exhaustif**. Pour tout usage, référez-vous aux **textes intégraux** dans `/LICENSES/` et aux entêtes **SPDX** placés dans chaque fichier.
+
+## Cartographie des licences
+- `/hardware/**` → **CERN-OHL-S v2.0**
+- `/docs/**` → **CC-BY-SA-4.0**
+- `/firmware/**` → **Apache-2.0** (proposé)
+
+Voir `./LICENSES/*` pour les textes complets.
