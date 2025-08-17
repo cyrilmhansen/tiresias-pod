@@ -1,10 +1,87 @@
-# LICENSE — aperçu & pointeurs (multi-licences)
+# LICENSE — aperçu & pointeurs (multi‑licences)
 
-> Ce dépôt contient **trois familles** d’artefacts avec des **régimes de licence distincts**. Ce fichier est un **résumé non exhaustif**. Pour tout usage, référez-vous aux **textes intégraux** dans `/LICENSES/` et aux entêtes **SPDX** placés dans chaque fichier.
+> Ce dépôt contient **trois familles** d’artefacts avec des **régimes de licence distincts**. Ce fichier est un **résumé non exhaustif**. Pour tout usage, référez‑vous aux **textes intégraux** dans `/LICENSES/` et aux entêtes **SPDX** placés dans chaque fichier.
 
-## Cartographie des licences
-- `/hardware/**` → **CERN-OHL-S v2.0**
-- `/docs/**` → **CC-BY-SA-4.0**
-- `/firmware/**` → **Apache-2.0** (proposé)
+## 1) Cartographie des licences par répertoire
 
-Voir `./LICENSES/*` pour les textes complets.
+| Répertoire     | Contenu                                               | Licence                                   | Texte intégral                             |
+| -------------- | ----------------------------------------------------- | ----------------------------------------- | ------------------------------------------ |
+| `/hardware/**` | Schémas, PCB, libs KiCad, vues 3D                     | **CERN‑OHL‑S v2.0** (Strongly Reciprocal) | `/LICENSES/CERN-OHL-S-2.0.txt`             |
+| `/docs/**`     | Documentation, tutos, images/diagrammes Mermaid       | **CC‑BY‑SA‑4.0**                          | `/LICENSES/CC-BY-SA-4.0.txt`               |
+| `/firmware/**` | Code source (ESP‑IDF/PlatformIO, composants, scripts) | **Apache‑2.0** *(proposé par défaut)*     | **/LICENSES/Apache-2.0.txt** *(à ajouter)* |
+
+> Si vous préférez une autre licence logicielle (MIT, GPL‑3.0, etc.), remplacez **Apache‑2.0** et ajustez l’entête SPDX des fichiers concernés.
+
+## 2) Obligations (résumé non contractuel)
+
+### 2.1 CERN‑OHL‑S v2.0 (matériel / `/hardware`)
+
+* **Partage à l’identique** des **Sources** matérielles (schémas/PCB) pour toute distribution de produits ou de modifications.
+* Conserver **avis de copyright/licence** et **informations d’attribution**.
+* Fournir les **fichiers de fabrication** et les **sources** dans un format raisonnablement modifiable.
+* **Aucune garantie**, responsabilité limitée (voir texte intégral).
+
+### 2.2 CC‑BY‑SA‑4.0 (docs / `/docs`)
+
+* **Attribution** (créditer les auteurs, lien licence, indiquer les changements).
+* **Partage dans les mêmes conditions** (œuvres dérivées sous CC‑BY‑SA‑4.0).
+* Pas de **garantie** ; exceptions possibles pour éléments tiers (voir §4).
+
+### 2.3 Apache‑2.0 (logiciel / `/firmware`)
+
+* Utilisation/modification/distribution autorisées, avec **avis** et **fichier NOTICE** (si présent).
+* **Concession de brevets** des contributeurs.
+* Obligation de **préserver les avis** et de **déclarer les changements importants**.
+* Aucune **marque** concédée. **Aucune garantie** (voir texte intégral).
+
+## 3) Entêtes SPDX — exemples à placer dans les fichiers
+
+**Markdown / Docs**
+
+```markdown
+<!-- SPDX-License-Identifier: CC-BY-SA-4.0 -->
+```
+
+**KiCad (champ titre/commentaire schéma/PCB)**
+
+```
+SPDX-License-Identifier: CERN-OHL-S-2.0
+```
+
+**C/C++ (firmware)**
+
+```c
+/* SPDX-License-Identifier: Apache-2.0 */
+```
+
+**Python / Scripts**
+
+```python
+# SPDX-License-Identifier: Apache-2.0
+```
+
+## 4) Composants tiers & exceptions
+
+* Les **dépendances** logicielles incluses ou référencées (librairies, blobs, images) peuvent avoir des **licences différentes**. Elles sont inventoriées dans `THIRD_PARTY_NOTICES.md` (à créer) ou dans leurs dossiers respectifs.
+* Les **marques**, **logos** et **noms commerciaux** restent la propriété de leurs détenteurs.
+
+## 5) Contribuer
+
+En contribuant, vous acceptez de publier vos modifications sous les mêmes licences applicables au dossier concerné.
+
+Recommandé : utiliser un **DCO** (Developer Certificate of Origin) via `Signed-off-by` dans les commits, et respecter les **entêtes SPDX**.
+
+## 6) Contact & conformité
+
+* Questions licence/compliance : ouvrez une **issue** sur le dépôt.
+* Pour la redistribution matérielle, assurez‑vous de fournir les **Sources** conformes à **CERN‑OHL‑S v2.0**.
+
+---
+
+### Pointeurs (textes complets)
+
+* **CERN‑OHL‑S v2.0** : `./LICENSES/CERN-OHL-S-2.0.txt`
+* **CC‑BY‑SA‑4.0** : `./LICENSES/CC-BY-SA-4.0.txt`
+* **Apache‑2.0** (si retenue pour `/firmware`) : `./LICENSES/Apache-2.0.txt`
+
+*(Ce fichier n’est pas un avis juridique. Référez‑vous aux textes officiels.)*

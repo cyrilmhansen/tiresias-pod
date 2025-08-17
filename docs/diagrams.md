@@ -11,7 +11,7 @@ Ce fichier regroupe les schémas **Mermaid** de référence à inclure dans le c
 ```mermaid
 flowchart LR
   App[(Appli mobile/PC BLE)]
-  subgraph BLE["BLE GATT\n(ACS + BAS + DIS)"]
+  subgraph BLE["BLE GATT (ACS + BAS + DIS)"]
     PlayCtrl[PlaybackControl]
     Vol[Volume]
     Pos[TrackPosition/Length]
@@ -19,7 +19,7 @@ flowchart LR
     LibRes[LibraryResult]
     Dev[DeviceState]
   end
-  UI[UI locale\nBouton + LED + JackDetect]
+  UI[UI locale Bouton + LED + JackDetect]
   SD[(microSD)]
   IDX[Indexation]
   DEC[Décodeur/Buffer FLAC/OPUS/PCM]
@@ -52,7 +52,7 @@ flowchart TB
     META[Parse métadonnées]
     DEC[Pipeline audio FLAC/OPUS/WAV]
     I2S[I²S driver]
-    UI[GPIO ISR\nBouton/LED/Jack]
+    UI[GPIO ISR Bouton/LED/Jack]
     PWR[Power Mgmt Sleep/Wake/Timers]
     ERR[ErrLog/Watchdog]
   end
