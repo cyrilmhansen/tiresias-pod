@@ -6,6 +6,46 @@ Ce fichier regroupe les schémas **Mermaid** de référence à inclure dans le c
 
 ---
 
+
+```mermaid
+flowchart LR
+  %% ======== LÉGENDE ========
+  classDef audio stroke-width:2px;
+  classDef control stroke-dasharray: 5 5;
+
+  %% ======== BLOCS ========
+  Phone["Appli mobile\n(smartphone)"]
+  subgraph BLE["BLE GATT (ACS/BAS/DIS)"]
+    Direction["→ commandes\n← notifications"]
+  end
+
+  Btn["Bouton\n(mécanique)"]
+  LED["LED\n(indication)"]
+
+  SD[("microSD\n(FAT32/exFAT)")]
+  SoC["SoC ESP32‑S3\nFS + Index + Décodage + Buffer"]
+  I2S["Bus I²S\n(PCM)"]
+  DAC["DAC ES9020Q"]
+  AMP["Ampli casque INA1620\n/ Line-Out"]
+  HP[("Casque / Entrée ligne")]
+
+  %% ======== LIENS AUDIO (pleins) ========
+  SD -->|"fichiers FLAC/OPUS/WAV"| SoC:::audio
+  SoC -->|"PCM"| I2S:::audio
+  I2S --> DAC:::audio
+  DAC --> AMP:::audio
+  AMP --> HP:::audio
+
+  %% ======== LIENS CONTRÔLE (pointillés) ========
+  Phone -.->|"BLE GATT\n(Playback/Volume/Lib)"| BLE:::control
+  BLE -.-> SoC:::control
+  SoC -.->|"Notify: état, position, volume"| Phone:::control
+
+  Btn -.->|GPIO| SoC:::control
+  SoC -.->|"pattern LED"| LED:::control
+```
+
+
 ## 1) Flux logiques (données + contrôle) — v2
 
 ```mermaid
